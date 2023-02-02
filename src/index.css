@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+
+  background: rgb(107, 144, 197);
+  background: linear-gradient(
+      180deg,
+      rgba(246, 255, 253, 1) 0%,
+      rgba(245, 255, 252, 1) 50%,
+      rgba(228, 249, 243, 1) 510%
+    )
+    no-repeat center center fixed;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
