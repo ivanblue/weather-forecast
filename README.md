@@ -57,3 +57,7 @@ npm run dev
 - 3601 Lyon St, San Francisco, CA 94123
 - 12601 State St, Atlanta, MI 49709
 - 6929 Airport Blvd 110, Austin, TX 78752
+
+### SVG Weather icons
+
+[https://github.com/Makin-Things/weather-icons](https://github.com/Makin-Things/weather-icons)
