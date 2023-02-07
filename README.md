@@ -72,7 +72,7 @@ npm run dev
 node index.js
 ```
 
-## Example adddress
+## Example adddresses
 
 - 520 South Fairmont Way, Orange, California
 - 20 W 34th St., New York, NY 10001
