@@ -49,7 +49,7 @@ index.css
 
 ### Server
 
-We're using NodeJs with express and Axios to run a proxy server to avoid CORS issues.
+We're using NodeJs with [Express](https://expressjs.com/) and [Axios](https://axios-http.com/) to run a proxy server to avoid CORS issues.
 
 ```bash
 npm init
