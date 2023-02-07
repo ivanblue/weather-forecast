@@ -20,6 +20,6 @@ app.get('/proxy/*', (req, res) => {
     });
 });
 
-app.listen(3001, function () {
+app.listen(PORT, function () {
   console.log(`Proxy-server listening on port ${PORT}`);
 });
