@@ -2,7 +2,7 @@
 
 **Weather Forecast** is a [React](https://reactjs.org/) challenge project application. It connects to the [US Census Geocoding API](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.pdf) to get the latitude,longitude of an specific address and then connects to the [US National Weather Service API](https://www.weather.gov/documentation/services-web-api) to get the weather forecast for the following days.
 
-It also implements a proxy server using NodeJs with Express and Axios to bridge the CORS issue that show when querying the endpoints from the frontend.
+It also implements a proxy server using NodeJs with Express and Axios to bridge the CORS issue that shows when querying the endpoints from the frontend.
 
 ## Installation
 
