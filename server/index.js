@@ -1,19 +1,26 @@
+const { default: axios } = require('axios');
 const express = require('express');
 const cors = require('cors');
-const request = require('request');
 
 const app = express();
 const PORT = 3001;
 
 app.use(cors());
 
-app.use('/', (req, res) => {
+app.get('/proxy/*', (req, res) => {
   const url = req.path.replace('/proxy/', '');
   const queryString = require('querystring').stringify(req.query);
 
   console.log(`proxy'd url: ${url}?${queryString}`);
 
-  req.pipe(request(`${url}?${queryString}`)).pipe(res);
+  axios
+    .get(`${url}?${queryString}`)
+    .then(function (response) {
+      res.send(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 });
 
 app.listen(PORT, function () {

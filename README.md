@@ -49,12 +49,13 @@ index.css
 
 ### Server
 
-We're using [NodeJs](https://nodejs.org) with [Express](https://expressjs.com/) and [Axios](https://axios-http.com/) to run a proxy server to avoid CORS issues.
+We're using [NodeJs](https://nodejs.org) with [Express](https://expressjs.com/), [Axios](https://axios-http.com/) and [CORS](https://github.com/expressjs/cors#readme) to run a proxy server to avoid CORS issues.
 
 ```bash
 npm init
 npm install express
 npm install axios
+npm install cors
 ```
 
 ## Usage
