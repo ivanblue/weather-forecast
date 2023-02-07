@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { US_CENSUS_GEOCODING_API_URL, US_NATIONAL_WEATHER_API_URL } from './constants';
+import { US_CENSUS_GEOCODING_API_URL, US_NATIONAL_WEATHER_API_URL, PROXY_URL } from './constants';
 
 import { LoadingIcon } from './components';
 import { Searchbar } from './components';
@@ -49,11 +49,13 @@ const App = () => {
 
     if (search.length > 0) {
       return fetch(
-        `${US_CENSUS_GEOCODING_API_URL}?address=${search}&benchmark=Public_AR_Current&vintage=Current_Current&format=json`
+        `${PROXY_URL}/${US_CENSUS_GEOCODING_API_URL}?address=${search}&benchmark=Public_AR_Current&vintage=Current_Current&format=json`
       )
         .then((res) => res.json())
         .then((res) => {
           setLoading(false);
+
+          console.log(res.result.addressMatches);
 
           if (res.result.addressMatches.length > 0) {
             setErrorMessage('');
@@ -66,7 +68,10 @@ const App = () => {
             setErrorMessage('Error: Address not found');
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          setErrorMessage(`${err.name}: ${err.message}`);
+          console.error(`${err.name}: ${err.message}`);
+        });
     }
   }
 
@@ -75,7 +80,7 @@ const App = () => {
     if (xyCoords?.x && xyCoords?.y) {
       setLoading(true);
 
-      return fetch(`${US_NATIONAL_WEATHER_API_URL}points/${xyCoords?.y},${xyCoords?.x}`)
+      return fetch(`${US_NATIONAL_WEATHER_API_URL}/points/${xyCoords?.y},${xyCoords?.x}`)
         .then((res) => res.json())
         .then((res) => {
           const forecastURL = res.properties.forecast;
@@ -85,12 +90,17 @@ const App = () => {
             .then((res) => res.json())
             .then((res) => {
               setLoading(false);
-
               setWeatherPeriods(res.properties.periods);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+              setErrorMessage(`${err.name}: ${err.message}`);
+              console.error(`${err.name}: ${err.message}`);
+            });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          setErrorMessage(`${err.name}: ${err.message}`);
+          console.error(`${err.name}: ${err.message}`);
+        });
     }
   }
 };
