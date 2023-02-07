@@ -4,6 +4,8 @@
 
 It also implements a proxy server using NodeJs with Express and Axios to bridge the CORS issue that shows when querying the endpoints from the frontend.
 
+![weather-forecast-screenshot](https://user-images.githubusercontent.com/5141755/217128901-74018932-bf58-43a0-891c-bb5f2f63f13c.png)
+
 ## Installation
 
 ### Client
